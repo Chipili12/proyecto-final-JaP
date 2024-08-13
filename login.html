@@ -19,9 +19,22 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
+      <form action="index.html" id="login"> 
+        <!-- *Usuario* -->
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <!-- *Contraseña* -->
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+
+        <!-- *Ingresar* -->
+        <button type="submit" class="boton-Login">Ingresar</button>
+        </div>
+      </form>
+      <!-- <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      </div> -->
     </div>
   </main>
   <footer class="text-muted">
