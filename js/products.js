@@ -41,7 +41,6 @@ const showProductsList = () => {
             </div>
             `;
         }
-
         document.getElementById("products").innerHTML = htmlContentToAppend;
     }
 };
