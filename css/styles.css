@@ -188,3 +188,47 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+
+/*---------------------------------- *Login* ---------------------------------- */
+#contenidoLogin {
+  background-color: #E6E3E3;
+  width: 400px; /* Ancho del contenedor */
+  text-align: center; 
+  padding: 50px;
+  margin: 0 auto; /* Centro el contenedor */
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+#login {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contraseña, #usuario, .boton-Login{
+  width: 100%;
+  padding: 10px; 
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.boton-Login{
+  background-color: #A798CF;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.boton-Login:hover{
+  background-color: white;
+  color: #A798CF;
+}
+h1{
+  margin-bottom: 40px; /* Ubicar titulo */
+  font-size: 34px;
+  font-weight: bold;
+}
