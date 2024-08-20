@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("catID", 103);
     window.location = "products.html";
   });
+  
+  // Verifica si el usuario está logeado
   if (sessionStorage.getItem("isAuthenticated") !== "true") {
     window.location.href = "login.html"; // Redirigir al login si no está autenticado
     return;
