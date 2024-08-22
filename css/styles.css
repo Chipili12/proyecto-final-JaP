@@ -195,24 +195,24 @@ a.custom-card:hover {
 #contenidoLogin {
   background-color: #E6E3E3;
   width: 400px; /* Ancho del contenedor */
-  text-align: center; 
-  padding: 50px;
+  text-align: center;  /*Centramos el texto dentro del contenedor*/
+  padding: 50px; /*Espacio entre el borde y el contenido*/
   margin: 0 auto; /* Centro el contenedor */
-  border-radius: 15px;
-  font-weight: bold;
+  border-radius: 15px; /*Redondeamos los bordes*/
+  font-weight: bold; /*Estilo de la letra*/
 }
 
 #login {
   margin: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /*Organiza los elementos en columnas*/
+  align-items: center; /*Centra los elementos horizontales*/
 }
 
 #contraseña, #usuario, .boton-Login{
-  width: 100%;
-  padding: 10px; 
-  margin-bottom: 30px;
+  width: 100%; /*Ancho completo de los contenedores*/
+  padding: 10px; /*Espacio entre el borde y el contenido*/
+  margin-bottom: 30px; /*Espacio debajo de los contenedores/botones*/
   border-radius: 5px;
 }
 
@@ -223,12 +223,13 @@ a.custom-card:hover {
   font-weight: bold;
 }
 
-.boton-Login:hover{
+.boton-Login:hover{ /*Al pasar el mouse o pulsar cambia los colores*/
   background-color: white;
   color: #A798CF;
 }
+
 h1{
-  margin-bottom: 40px; /* Ubicar titulo */
+  margin-bottom: 40px; /* Ubica el titulo para separarlo del resto*/
   font-size: 34px;
   font-weight: bold;
 }

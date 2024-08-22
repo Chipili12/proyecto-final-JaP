@@ -1,8 +1,8 @@
-let login = document.getElementById("login");
+let login = document.getElementById("login");  // Tomo los datos del login
 
-if (login) {
-  login.addEventListener("submit", () => {
-    sessionStorage.setItem("isAuthenticated", "true");
+if (login) { 
+  login.addEventListener("submit", () => { // evento que se activa cuando envia el formulario
+    sessionStorage.setItem("isAuthenticated", "true"); // cuando el usuario envia el formulario, lo marca como autenticado
     window.location.href = "index.html"; // Redirigir al index si se autentica
   });
 }
