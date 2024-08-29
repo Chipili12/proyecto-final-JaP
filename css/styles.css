@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Verdana", serif !important;
 }
 
 .jumbotron .display-4 {
@@ -32,8 +32,8 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,12 +73,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +86,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -189,13 +189,11 @@ a.custom-card:hover {
   color: orange;
 }
 
-
-
 /*---------------------------------- *Login* ---------------------------------- */
 #contenidoLogin {
-  background-color: #E6E3E3;
+  background-color: #e6e3e3;
   width: 400px; /* Ancho del contenedor */
-  text-align: center;  /*Centramos el texto dentro del contenedor*/
+  text-align: center; /*Centramos el texto dentro del contenedor*/
   padding: 50px; /*Espacio entre el borde y el contenido*/
   margin: 0 auto; /* Centro el contenedor */
   border-radius: 15px; /*Redondeamos los bordes*/
@@ -209,27 +207,75 @@ a.custom-card:hover {
   align-items: center; /*Centra los elementos horizontales*/
 }
 
-#contraseña, #usuario, .boton-Login{
+#contraseña,
+#usuario,
+.boton-Login {
   width: 100%; /*Ancho completo de los contenedores*/
   padding: 10px; /*Espacio entre el borde y el contenido*/
   margin-bottom: 30px; /*Espacio debajo de los contenedores/botones*/
   border-radius: 5px;
 }
 
-.boton-Login{
-  background-color: #A798CF;
+.boton-Login {
+  background-color: #a798cf;
   color: white;
   border: none;
   font-weight: bold;
 }
 
-.boton-Login:hover{ /*Al pasar el mouse o pulsar cambia los colores*/
+.boton-Login:hover {
+  /*Al pasar el mouse o pulsar cambia los colores*/
   background-color: white;
-  color: #A798CF;
+  color: #a798cf;
 }
 
-h1{
+h1 {
   margin-bottom: 40px; /* Ubica el titulo para separarlo del resto*/
   font-size: 34px;
   font-weight: bold;
+}
+
+@media (max-width: 320px) {
+  #contenidoLogin {
+    width: 230px;
+    font-size: 50%;
+    align-items: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  #contenidoLogin {
+    margin-top: 60px;
+  }
+}
+
+/*---------------------------------- *Products* ---------------------------------- */
+
+@media (max-width: 768px) {
+  .mt-4 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 320px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-3 {
+    width: 100%;
+  }
+
+  .mb-0 {
+    text-align: left;
+  }
+
+  .text-muted {
+    text-align: right;
+  }
 }
