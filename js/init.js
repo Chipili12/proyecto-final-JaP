@@ -39,3 +39,6 @@ let getJSONData = function(url){
         return result;
     });
 }
+if (sessionStorage.getItem("isAuthenticated") == "true") {
+  document.getElementById("loginInicio").innerHTML = sessionStorage.getItem("email");
+}
