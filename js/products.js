@@ -83,7 +83,7 @@ document.getElementById("sortByPrice").addEventListener("click", function () {
       }
       return 0;
     });
-    document.getElementById("UpDown").className = "fas fa-sort-amount-down mr-1";
+    document.getElementById("UpDown").className = "fas fa-sort-amount-up mr-1";
   }
   showProductsList(resultPrice);
 });
