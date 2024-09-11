@@ -92,11 +92,12 @@ document.getElementById("rangeFilterCount").addEventListener("click", () => {
   showProductsList(datosFiltrado());
 });
 
+// Función para filtrar los productos por precio
 function datosFiltrado() {
   let minimo = parseInt(document.getElementById("rangeFilterCountMin").value);
   let maximo = parseInt(document.getElementById("rangeFilterCountMax").value);
   minimo = isNaN(minimo) ? 0 : minimo; // Si es NaN, se asigna 0
   maximo = isNaN(maximo) ? Number.MAX_VALUE : maximo; // Si es NaN, se asigna un valor muy alto
-  const filteredCategoryData = categoryData.filter((item) => item.cost > minimo && item.cost < maximo);
+  const filteredCategoryData = categoryData.filter((item) => item.cost > minimo && item.cost < maximo); // Filtra los productos por precio
   return filteredCategoryData;
 }
