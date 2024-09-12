@@ -4,7 +4,7 @@ let categoryID = localStorage.getItem("catID");
 // Utilizo la categoría dada por el localStorage, para completar la URL de la API
 const API_URL = `https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`;
 let categoryData = undefined;
-
+let isAscending = true;
 // Declaro la función que obtiene los datos de una categoría de productos realizando un fetch a la API
 const fetchProduct = async () => {
   try {
@@ -48,7 +48,8 @@ const showProductsList = (array) => {
 // Llamo la función para realizar el fetch, posteriormente asigno el resultado en formato JSON a la variable categoryData, y llamo a la función showProductsList.
 fetchProduct().then((data) => {
   categoryData = data.products;
-  showProductsList(categoryData);
+
+  showProductsList(datosRelevancia());
 });
 
 // Filtrar y ordenar productos
@@ -89,7 +90,7 @@ document.getElementById("sortByPrice").addEventListener("click", function () {
 });
 
 document.getElementById("rangeFilterCount").addEventListener("click", () => {
-  showProductsList(datosFiltrado());
+  showProductsList(datosFiltrado()); // Botón de filtrado por precio, llama a la función que imprime los productos, y pasa como parámetro los datos filtrados.
 });
 
 // Función para filtrar los productos por precio
@@ -98,6 +99,31 @@ function datosFiltrado() {
   let maximo = parseInt(document.getElementById("rangeFilterCountMax").value);
   minimo = isNaN(minimo) ? 0 : minimo; // Si es NaN, se asigna 0
   maximo = isNaN(maximo) ? Number.MAX_VALUE : maximo; // Si es NaN, se asigna un valor muy alto
-  const filteredCategoryData = categoryData.filter((item) => item.cost > minimo && item.cost < maximo); // Filtra los productos por precio
+  const filteredCategoryData = categoryData.filter((item) => item.cost >= minimo && item.cost <= maximo); // Filtra los productos por precio
   return filteredCategoryData;
 }
+
+function datosRelevancia() {
+  let filteredCategoryData = datosFiltrado();
+
+  if (!isAscending) {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => a.soldCount - b.soldCount);
+    document.getElementById("countButton").className = "fas fa-sort-amount-down mr-1";
+  } else {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => b.soldCount - a.soldCount);
+    document.getElementById("countButton").className = "fas fa-sort-amount-up mr-1";
+  }
+  isAscending = !isAscending;
+  return filteredCategoryData;
+}
+
+document.getElementById("sortByCount").addEventListener("click", () => {
+  showProductsList(datosRelevancia());
+});
+
+document.getElementById("clearRangeFilter").addEventListener("click", () => {
+  document.getElementById("rangeFilterCountMin").value = "";
+  document.getElementById("rangeFilterCountMax").value = "";
+  let filteredCategoryData = categoryData.sort((a, b) => b.soldCount - a.soldCount);
+  showProductsList(filteredCategoryData);
+});
