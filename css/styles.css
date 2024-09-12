@@ -233,7 +233,7 @@ h1 {
   font-weight: bold;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   #contenidoLogin {
     width: 230px;
     font-size: 50%;
@@ -260,7 +260,7 @@ h1 {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 500px) {
   .row {
     flex-direction: column;
   }
