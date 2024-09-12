@@ -277,3 +277,25 @@ h1 {
     text-align: right;
   }
 }
+
+
+/*---------------------------------- *Products Info* ---------------------------------- */
+
+
+
+
+.img2 {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 5;
+  width: 80px;
+  opacity: 0.7;
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease; 
+}
+
+.img2:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 9;
+}

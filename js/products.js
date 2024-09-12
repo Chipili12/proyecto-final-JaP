@@ -3,8 +3,9 @@ let categoryID = localStorage.getItem("catID");
 
 // Utilizo la categoría dada por el localStorage, para completar la URL de la API
 const API_URL = `https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`;
-let categoryData = undefined;
+let categoryData = [];
 let isAscending = true;
+
 // Declaro la función que obtiene los datos de una categoría de productos realizando un fetch a la API
 const fetchProduct = async () => {
   try {
@@ -107,18 +108,18 @@ function datosFiltrado() {
 }
 
 function datosRelevancia() {
-    let filteredCategoryData = datosFiltrado();
-  
-    if (!isAscending) {
-      filteredCategoryData = filteredCategoryData.sort((a, b) => a.soldCount - b.soldCount);
-      document.getElementById("countButton").className = "fas fa-sort-amount-down mr-1";
-    } else {
-      filteredCategoryData = filteredCategoryData.sort((a, b) => b.soldCount - a.soldCount);
-      document.getElementById("countButton").className = "fas fa-sort-amount-up mr-1";
-    }
-    isAscending = !isAscending;
-    return filteredCategoryData;
+  let filteredCategoryData = datosFiltrado();
+
+  if (!isAscending) {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => a.soldCount - b.soldCount);
+    document.getElementById("countButton").className = "fas fa-sort-amount-down mr-1";
+  } else {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => b.soldCount - a.soldCount);
+    document.getElementById("countButton").className = "fas fa-sort-amount-up mr-1";
   }
+  isAscending = !isAscending;
+  return filteredCategoryData;
+}
 
 document.getElementById("sortByCount").addEventListener("click", () => {
   showProductsList(datosRelevancia());
