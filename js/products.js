@@ -66,7 +66,7 @@ function datosFiltrado() {
   minimo = isNaN(minimo) ? 0 : minimo; // If NaN, set to 0
   maximo = isNaN(maximo) ? Number.MAX_VALUE : maximo; // If NaN, set to a very high value
   const filteredCategoryData = categoryData.filter((item) => item.cost >= minimo && item.cost <= maximo); // Filter products by price
-  return filteredCategoryData;  
+  return filteredCategoryData;
 }
 
 // Function to sort products by relevance (sold count)
@@ -94,9 +94,9 @@ document.getElementById("sortByPrice").addEventListener("click", function () {
     document.getElementById("UpDown").className = "fas fa-sort-amount-down mr-1"; //cambia el icono
   } else {
     resultPrice = filteredCategoryData.sort((a, b) => b.cost - a.cost); //ordena de mayor a menor
-    document.getElementById("UpDown").className = "fas fa-sort-amount-up mr-1"; 
+    document.getElementById("UpDown").className = "fas fa-sort-amount-up mr-1";
   }
-  categoryData=resultPrice
+  categoryData = resultPrice
   showProductsList(resultPrice);
 });
 
@@ -105,14 +105,14 @@ document.getElementById("rangeFilterCount").addEventListener("click", () => {
 });
 
 document.getElementById("sortByCount").addEventListener("click", () => {
-  showProductsList(datosRelevancia()); 
+  showProductsList(datosRelevancia());
 });
 
 document.getElementById("clearRangeFilter").addEventListener("click", () => {
   document.getElementById("rangeFilterCountMin").value = ""; //Limpia el valor mínimo
   document.getElementById("rangeFilterCountMax").value = ""; //Limpia el valor máximo
   document.getElementById("buscador").value = "";
-  categoryData=original
+  categoryData = original
   let filteredCategoryData = original.sort((a, b) => b.soldCount - a.soldCount); // Filtra los productos por la relevancia para volver al órden predefinido
   showProductsList(filteredCategoryData);
 });
@@ -125,5 +125,5 @@ function searchBar() {
 }
 
 document.getElementById("buscador").addEventListener("input", () => {
-    searchBar() // Imprime la lista de productos, filtrados por el valor de la barra de búsqueda
+  searchBar() // Imprime la lista de productos, filtrados por el valor de la barra de búsqueda
 });
