@@ -3,19 +3,19 @@ const API_URL = `https://japceibal.github.io/emercado-api/products/${localStorag
 
 // Declaro la función que obtiene los datos del producto realizando un fetch a la API
 const fetchItem = async () => {
-    try {
-        const respuesta = await fetch(API_URL);
-        return await respuesta.json()
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const respuesta = await fetch(API_URL);
+    return await respuesta.json();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Llamo a la función fetchItem y asigno los datos del producto a la variable itemData
 fetchItem().then((data) => {
-    itemData = data;
-    console.log(itemData)
-    showItem(itemData); // Llamo a la función para mostrar los datos del producto
+  itemData = data;
+  console.log(itemData);
+  showItem(itemData); // Llamo a la función para mostrar los datos del producto
 });
 
 // Declaro la función showItem que muestra los datos del producto en la página, utilizando el JSON obtenido de la API
