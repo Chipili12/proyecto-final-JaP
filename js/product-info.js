@@ -3,45 +3,65 @@ const API_URL = `https://japceibal.github.io/emercado-api/products/${localStorag
 
 // Declaro la función que obtiene los datos del producto realizando un fetch a la API
 const fetchItem = async () => {
-    try {
-        const respuesta = await fetch(API_URL);
-        return await respuesta.json()
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const respuesta = await fetch(API_URL);
+    return await respuesta.json();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Llamo a la función fetchItem y asigno los datos del producto a la variable itemData
 fetchItem().then((data) => {
-    itemData = data;
-    console.log(itemData)
-    showItem(itemData); // Llamo a la función para mostrar los datos del producto
+  itemData = data;
+  console.log(itemData);
+  showItem(itemData); // Llamo a la función para mostrar los datos del producto
 });
 
 // Declaro la función showItem que muestra los datos del producto en la página, utilizando el JSON obtenido de la API
 const showItem = (item) => {
-    let htmlContentToAppend = "";
-    htmlContentToAppend += `
-            <div class="d-inline-block align-items-center">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <img src="${item.images[0]}" alt="Item ${item.id}" class=" img-thumbnail ">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                            <h4 class="mb-0">${item.name} </h4> 
-                            </div>
-                        </div>
-                        <small class="mt-2 d-flex text-muted">${item.soldCount} artículos vendidos</small>
-                    <p class="d-flex mt-4">${item.description}</p>
-                    <div class="">
-                            <h4 class="">${item.currency} ${item.cost}</h4> 
-                    </div>
-                    </div>
-                    
-            </div>
-            `;
-    document.getElementById("item").innerHTML = htmlContentToAppend;
+  let htmlContentToAppend = "";
+  htmlContentToAppend += `
+    <div class="row ">
+        <a class="text-muted" href="products.html?catID=${localStorage.getItem("catID")}">${item.category}</a>
 
+        <!-- Imágenes chiquitas -->
+        <div class="col-1 d-lg-block d-none">
+            ${item.images
+              .map(
+                (image, index) => `
+                <img src="${image}" alt="Item ${item.id} Image ${index + 1}" class="img-thumbnail mb-2 img2" data-large-image="${
+                  item.images[0]
+                }" small-image="${image}">
+            `
+              )
+              .join("")}
+        </div>
+
+        <!-- Imagen grande -->
+        <div class="col-10 col-lg-5 d-flex justify-content-center">
+            <img id="largeImage" src="${item.images[0]}" alt="Item ${item.id}" class="img-thumbnail">
+        </div>
+
+        <!-- Descripción -->
+        <div class="col-12 d-flex flex-column justify-content-start col-lg-5 mt-lg-0 mt-4">
+            <h4 class="mb-0">${item.name}</h4> 
+            <small class="mt-2 text-muted">${item.soldCount} artículos vendidos</small>
+            <p class="mt-4">${item.description}</p>
+            <div class="d-flex justify-content-between">
+                <h4>${item.currency} ${item.cost}</h4> 
+            </div>
+        </div>
+    </div>
+    `;
+
+  document.getElementById("item").innerHTML = htmlContentToAppend;
+
+  // Cambia la imágen al hacer click
+  document.querySelectorAll(".img2").forEach((img) => {
+    img.addEventListener("click", (e) => {
+      const largeImage = document.getElementById("largeImage");
+      largeImage.src = e.target.getAttribute("small-image");
+    });
+  });
 };

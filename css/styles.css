@@ -207,7 +207,9 @@ a.custom-card:hover {
   align-items: center; /*Centra los elementos horizontales*/
 }
 
-#contraseña, #email, .boton-Login{
+#contraseña,
+#email,
+.boton-Login {
   width: 100%; /*Ancho completo de los contenedores*/
   padding: 10px; /*Espacio entre el borde y el contenido*/
   margin-bottom: 30px; /*Espacio debajo de los contenedores/botones*/
@@ -277,4 +279,3 @@ h1 {
     text-align: right;
   }
 }
-

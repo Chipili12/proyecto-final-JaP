@@ -55,75 +55,80 @@ const showProductsList = (array) => {
 // Llamo la función para realizar el fetch y luego inicializo categoryData y otras funciones
 fetchProduct().then((products) => {
   original = products;
-  categoryData = original; // Initialize categoryData with the fetched products
+  categoryData = original; // Array para almacenar los datos de la categoría
   showProductsList(datosRelevancia()); //Se muestra la lista inicial de productos
 });
 
-// Function to filter products by price
+// Declaro la función para filtrar los productos por precio mínimo y máximo
 function datosFiltrado() {
   let minimo = parseInt(document.getElementById("rangeFilterCountMin").value);
   let maximo = parseInt(document.getElementById("rangeFilterCountMax").value);
-  minimo = isNaN(minimo) ? 0 : minimo; // If NaN, set to 0
-  maximo = isNaN(maximo) ? Number.MAX_VALUE : maximo; // If NaN, set to a very high value
-  const filteredCategoryData = categoryData.filter((item) => item.cost >= minimo && item.cost <= maximo); // Filter products by price
-  return filteredCategoryData;  
-}
-
-// Function to sort products by relevance (sold count)
-function datosRelevancia() {
-  let filteredCategoryData = datosFiltrado(); //Obtiene los datos filtrados
-  if (!isAscending) {
-    filteredCategoryData = filteredCategoryData.sort((a, b) => a.soldCount - b.soldCount);  //Ordena de menor a mayor
-    document.getElementById("countButton").className = "fas fa-sort-amount-down mr-1";
-  } else {
-    filteredCategoryData = filteredCategoryData.sort((a, b) => b.soldCount - a.soldCount); //Ordena de mayor a menor
-    document.getElementById("countButton").className = "fas fa-sort-amount-up mr-1";
-  }
-  isAscending = !isAscending; //Cambia el órden del filtrado
+  minimo = isNaN(minimo) ? 0 : minimo; // Si es NaN, se le asigna 0
+  maximo = isNaN(maximo) ? Number.MAX_VALUE : maximo; // Si es NaN, le asigna un valor muy alto
+  const filteredCategoryData = categoryData.filter((item) => item.cost >= minimo && item.cost <= maximo); // Filtra los productos por el rango de precios
   return filteredCategoryData;
 }
 
-// Event listeners for sorting and filtering
+// Declaro la función para ordenar los productos por relevancia (catidad de vendidos)
+function datosRelevancia() {
+  let filteredCategoryData = datosFiltrado(); // Obtiene los datos filtrados
+  if (!isAscending) {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => a.soldCount - b.soldCount); // Ordena de menor a mayor
+    document.getElementById("countButton").className = "fas fa-sort-amount-down mr-1"; // Cambia el ícono
+  } else {
+    filteredCategoryData = filteredCategoryData.sort((a, b) => b.soldCount - a.soldCount); // Ordena de mayor a menor
+    document.getElementById("countButton").className = "fas fa-sort-amount-up mr-1"; // Cambia el ícono
+  }
+  isAscending = !isAscending; // Cambia el órden del filtrado
+  return filteredCategoryData;
+}
+
+// Event listeners para filtrar y ordenar
 document.getElementById("sortByPrice").addEventListener("click", function () {
   const filteredCategoryData = datosFiltrado();
-  let resultPrice = []; //array para almacenar los resultados del ordenado por precio
-  let orden = document.getElementById("UpDown").className;
+  let resultPrice = []; // array para almacenar los resultados del ordenado por precio
+  let orden = document.getElementById("UpDown").className; // obtiene la clase del icono
 
   if (orden == "fas fa-sort-amount-up mr-1") {
-    resultPrice = filteredCategoryData.sort((a, b) => a.cost - b.cost); //ordena de menor a mayor
-    document.getElementById("UpDown").className = "fas fa-sort-amount-down mr-1"; //cambia el icono
+    resultPrice = filteredCategoryData.sort((a, b) => a.cost - b.cost); // ordena de menor a mayor
+    document.getElementById("UpDown").className = "fas fa-sort-amount-down mr-1"; // cambia el icono
   } else {
-    resultPrice = filteredCategoryData.sort((a, b) => b.cost - a.cost); //ordena de mayor a menor
-    document.getElementById("UpDown").className = "fas fa-sort-amount-up mr-1"; 
+    resultPrice = filteredCategoryData.sort((a, b) => b.cost - a.cost); // ordena de mayor a menor
+    document.getElementById("UpDown").className = "fas fa-sort-amount-up mr-1"; // cambia el icono
   }
-  categoryData=resultPrice
-  showProductsList(resultPrice);
+  categoryData = resultPrice; // asigna el array ordenado a la variable categoryData
+  showProductsList(resultPrice); // muestra los productos ordenados
 });
 
+// Event listener para filtrar por precio
 document.getElementById("rangeFilterCount").addEventListener("click", () => {
   showProductsList(datosFiltrado());
 });
 
+// Event listener para ordenar por relevancia
 document.getElementById("sortByCount").addEventListener("click", () => {
-  showProductsList(datosRelevancia()); 
+  showProductsList(datosRelevancia());
 });
 
+// Event listener para limpiar los filtros
 document.getElementById("clearRangeFilter").addEventListener("click", () => {
-  document.getElementById("rangeFilterCountMin").value = ""; //Limpia el valor mínimo
-  document.getElementById("rangeFilterCountMax").value = ""; //Limpia el valor máximo
-  document.getElementById("buscador").value = "";
-  categoryData=original
+  document.getElementById("rangeFilterCountMin").value = ""; // Limpia el valor mínimo
+  document.getElementById("rangeFilterCountMax").value = ""; // Limpia el valor máximo
+  document.getElementById("buscador").value = ""; // Limpia el valor de la búsqueda
+  categoryData = original;
   let filteredCategoryData = original.sort((a, b) => b.soldCount - a.soldCount); // Filtra los productos por la relevancia para volver al órden predefinido
   showProductsList(filteredCategoryData);
 });
 
+// Declaro la función para buscar productos por nombre o descripción
 function searchBar() {
-  let inputP = document.getElementById("buscador").value.toLowerCase(); //
-  let searchComparison = original.filter((item) => item.name.toLowerCase().includes(inputP) || item.description.toLowerCase().includes(inputP)); //Revisa si algún nombre o descripción de producto coincide con el valor de la barra de búsqueda
-  categoryData = searchComparison;   // Asigna el valor de la lista filtrada al array categoryData, para utilizarla en el resto de las funciones
+  let inputP = document.getElementById("buscador").value.toLowerCase(); // Obtiene el valor de la barra de búsqueda y lo convierte a minúsculas
+  let searchComparison = original.filter((item) => item.name.toLowerCase().includes(inputP) || item.description.toLowerCase().includes(inputP)); // Revisa si algún nombre o descripción de producto coincide con el valor de la barra de búsqueda
+  categoryData = searchComparison; // Asigna el valor de la lista filtrada al array categoryData, para utilizarla en el resto de las funciones
   showProductsList(categoryData); // Muestra los productos filtrados
 }
 
+// Event listener para la barra de búsqueda, llama a la función searchBar a medida que se escribe
 document.getElementById("buscador").addEventListener("input", () => {
-    searchBar() // Imprime la lista de productos, filtrados por el valor de la barra de búsqueda
+  searchBar(); // Imprime la lista de productos, filtrados por el valor de la barra de búsqueda
 });
