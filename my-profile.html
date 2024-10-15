@@ -27,37 +27,36 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html" id="loginInicio">Login</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <form action="">
+        <div>
+          <img src="" alt="Imagen de perfil" id="profilePicture" class=".bd-placeholder-img">
+          <input type="file" accept="image/*" id="uploadImage">
+
+        </div>
+
+        <div class="form-item">
+          <p>Nombre*</p>
+          <input type="text" placeholder="Ingrese su nombre" required>
+        </div>
+        <div class="form-item">
+          <p>Segundo nombre</p>
+          <input type="text" placeholder="Ingrese su segundo nombre">
+        </div>
+        <div class="form-item-left">
+          <p>Apellido*</p>
+          <input type="text" placeholder="Ingrese su apellido" required>
+        </div>
+        <div class="form-item">
+          <p>Segundo apellido</p>
+          <input type="text" placeholder="Ingrese su segundo apellido">
+        </div>
+        <div class="form-item">
+          <p>E-mail*</p>
+          <input type="text" id="E-mail" disabled>
+        </div>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
@@ -65,7 +64,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>

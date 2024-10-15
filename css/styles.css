@@ -188,6 +188,20 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+/*---------------------------------- *Navbar* ---------------------------------- */
+
+.offcanvas-body {
+  padding: 20px;
+}
+
+#cartBadge{
+  left: -76px;
+  padding: 3px;
+  top: -9px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
 
 /*---------------------------------- *Login* ---------------------------------- */
 #contenidoLogin {
@@ -256,47 +270,23 @@ h1 {
 
 /*---------------------------------- *Products* ---------------------------------- */
 
-@media (max-width: 768px) {
-  .mt-4 {
-    text-align: left;
-  }
-}
-
-@media (max-width: 500px) {
-  .row {
-    flex-direction: column;
-  }
-
-  .col-3 {
-    width: 100%;
-  }
-
-  .mb-0 {
-    text-align: left;
-  }
-
-  .text-muted {
-    text-align: right;
-  }
-}
 
 
 .img2 {
   z-index: 5;
   opacity: 0.8;
 }
-.img2:hover{
-  opacity:1;
+.img2:hover {
+  opacity: 1;
   transform: rotate(-5deg);
   transition: transform 0.3s ease;
-  
 }
 
 /* Smaller images for medium screens and below (md and smaller) */
 @media (max-width: 991.98px) {
   .img2 {
-      width: 80px;  /* Adjust the size as needed */
-      height: auto;
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
   }
 }
 .btn-comprar {
@@ -304,7 +294,6 @@ h1 {
   color: white;
   border: none;
 }
-
 
 /*Productos relacionados*/
 .ContenedorProductosR {
@@ -316,7 +305,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
 }
 
 .productoRItem {
@@ -334,7 +322,7 @@ h1 {
 
 .productoRItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: inherit;
 }
@@ -353,13 +341,12 @@ h1 {
 
 @media (max-width: 768px) {
   .produtcosRImagen {
-      width: 200px;
+    width: 200px;
   }
   .productosRNombre {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
-
 
 /*Estilos reviews*/
 
@@ -368,7 +355,7 @@ h1 {
 }
 .review:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .star-rating {

@@ -32,7 +32,7 @@ const showProductsList = (array) => {
     htmlContentToAppend += `
       <div onclick="setItemID(${product.id})" class="list-group-item list-group-item-action cursor-active py-3">
         <div class="row">
-          <div class="col-3">
+          <div class="col-md-3 col-12">
             <img src="${product.image}" alt="Product ${i + 1}" class="img-thumbnail">
           </div>
           <div class="col">
