@@ -7,28 +7,49 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
-function loadNavbar() {
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.body.insertAdjacentHTML('afterbegin', data);
+document.addEventListener("DOMContentLoaded", function (e) {
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode')
+
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches && !isDarkMode) {
+          console.log("No hay datos cargados en darkmode")
+          localStorage.setItem('darkMode', 'true')
+          body.classList.add('dark-mode');
+          darkModeSwitch.checked = true;
+        } else if (!isDarkMode) {
+          body.classList.remove('dark-mode');
+          localStorage.setItem('darkMode', 'false')
+          darkModeSwitch.checked = false;
+        }
+
+        if (isDarkMode=='true') {
+          body.classList.add('dark-mode');
+          darkModeSwitch.checked = true;
+        }
+      
+        darkModeSwitch.addEventListener('change', () => {
+          if (darkModeSwitch.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'true');
+          } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'false');
+          }
+        });
       if (sessionStorage.getItem("isAuthenticated") == "true") {
-        var loginInicio = document.getElementById("loginInicio");
-        loginInicio.setAttribute("data-bs-toggle", "offcanvas");
-        loginInicio.setAttribute("data-bs-target", "#offcanvasRight");
-        loginInicio.setAttribute("aria-controls", "offcanvasRight");
-        loginInicio.innerHTML = sessionStorage.getItem("email");
+        var menuOffcanvas = document.getElementById("loginInicio");
+        menuOffcanvas.setAttribute("data-bs-toggle", "offcanvas");
+        menuOffcanvas.setAttribute("data-bs-target", "#offcanvasRight");
+        menuOffcanvas.setAttribute("aria-controls", "offcanvasRight");
+        menuOffcanvas.innerHTML = sessionStorage.getItem("email");
         document.getElementById("logoutButton").addEventListener("click", function () {
-          sessionStorage.setItem("isAuthenticated", "false");
-          sessionStorage.setItem("email", "");
+          sessionStorage.clear();
+          localStorage.clear();
           window.location.href = "login.html";
         })
       }
-    })
-    .catch(error => console.error('Error loading navbar:', error));
-}
-
-window.onload = loadNavbar;
+})
 
 
 let showSpinner = function () {

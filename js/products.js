@@ -10,8 +10,8 @@ let isAscending = true;
 // Declaro la función que obtiene los datos de una categoría de productos realizando un fetch a la API
 const fetchProduct = async () => {
   try {
-    const respuesta = await fetch(API_URL);
-    const data = await respuesta.json();
+    const response = await fetch(API_URL);
+    const data = await response.json();
     return data.products;
   } catch (error) {
     console.log(error);

@@ -1,0 +1,112 @@
+/*---------------------------------- my-profile ---------------------------------- */
+
+#uploadImage {
+    display: none;
+}
+
+#profilePicture:hover {
+    cursor: pointer;
+}
+
+.my-profile-container {
+    width: 800px;
+    padding: 40px;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#profilePicture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 2px solid #ddd;
+}
+
+/* Dos columnas */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-item {
+    margin-bottom: 1.5rem;
+}
+
+.form-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-item input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;    
+    transition: border-color 0.3s ease;
+    width: 90%;
+}
+
+button {
+    background-color: #a798cf;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: white;
+    color: #a798cf;
+    border: 2px solid #a798cf;
+}
+
+@media (max-width: 768px) {
+    .my-profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    /* Columnas */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+    .form-item input{
+        width: 100%;
+    }
+
+    #profilePicture {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+    }
+}
