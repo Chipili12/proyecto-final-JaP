@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const storeEmail = sessionStorage.getItem("email");
     if (storeEmail) {
         document.getElementById("E-mail").value = storeEmail;
-        document.getElementById("nickname").textContent = storeEmail.split('@')[0];
+        document.getElementById("nickname").textContent = "@" + storeEmail.split('@')[0];
     }
     if (savedProfilePicture) {
         profilePicture.src = savedProfilePicture;

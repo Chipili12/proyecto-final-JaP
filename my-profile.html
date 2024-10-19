@@ -91,12 +91,16 @@
     <div class="my-profile-container">
       <div class="my-profile-form">
         <form action="" method="get" class="needs-validation" novalidate>
-          <div class="d-flex align-items-center profile-header">
-            <img src="img/img_perfil.png" alt="" class="bd-placeholder-img" id="profilePicture" width="10%" height="10%">
-            <input type="file" accept="image/*" id="uploadImage">
-            </img>
-            <p id="nickname"></p>
-          </div>
+          <div class="container">
+            <div class="d-flex align-items-center profile-header">
+                <div class="profile-picture-container">
+                    <img src="img/img_perfil.png" alt="Profile Picture" class="bd-placeholder-img" id="profilePicture" style="width: 100px; height: 100px;">
+                    <div class="hover-text">Haz click para cambiar tu foto.</div>
+                    <input type="file" accept="image/*" id="uploadImage">
+                </div>
+                <p id="nickname" class="ms-3 mb-0"></p>
+            </div>
+        </div>
           <div class="form-grid">
             <div class="form-item">
               <label>Nombre*</label>
