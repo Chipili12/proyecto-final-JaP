@@ -147,3 +147,7 @@ button:hover {
 #uploadImage {
     display: none;
 }
+
+#register{
+    width: 95%;
+}
