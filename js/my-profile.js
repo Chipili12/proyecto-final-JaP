@@ -40,7 +40,6 @@ input.addEventListener("change", () => {
     fr.addEventListener("load", () => {
         // evento que se dispara cuando se termina de cargar la imagen
         const url = fr.result; // obtener la data URL de la imagen
-        console.log(url);
 
         localStorage.setItem("profilePicture", url); // guardar la imagen en el localStorage
         profilePicture.src = url;
