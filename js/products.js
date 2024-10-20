@@ -10,8 +10,8 @@ let isAscending = true;
 // Declaro la función que obtiene los datos de una categoría de productos realizando un fetch a la API
 const fetchProduct = async () => {
   try {
-    const respuesta = await fetch(API_URL);
-    const data = await respuesta.json();
+    const response = await fetch(API_URL);
+    const data = await response.json();
     return data.products;
   } catch (error) {
     console.log(error);
@@ -32,7 +32,7 @@ const showProductsList = (array) => {
     htmlContentToAppend += `
       <div onclick="setItemID(${product.id})" class="list-group-item list-group-item-action cursor-active py-3">
         <div class="row">
-          <div class="col-3">
+          <div class="col-md-3 col-12">
             <img src="${product.image}" alt="Product ${i + 1}" class="img-thumbnail">
           </div>
           <div class="col">

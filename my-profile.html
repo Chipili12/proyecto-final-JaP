@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/my-profile.css">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -45,19 +47,105 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html" id="loginInicio">Login</a>
+            <a class="nav-link" href="login.html" id="loginInicio" type="button">Login</a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+              aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header bg-dark text-white">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body d-flex flex-column bg-secondary">
+                <div class="flex-grow-1">
+                  <a class="btn w-100 text-start mb-2 menu-item " href="my-profile.html">
+                    <i class="bi bi-person me-2"></i> Mi perfil
+                  </a>
+                  <button class="btn w-100 text-start mb-2 menu-item" id="cartButton">
+                    <i class="bi bi-cart me-2"></i>Carrito <span class="badge bg-primary rounded-pill"
+                      id="cartBadge">0</span>
+                  </button>
+                  <button class="btn w-100 text-start mb-2 menu-item" id="logoutButton">
+                    <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+                  </button>
+                </div>
+                <div class="mt-auto text-center text-muted">
+                  <small>&copy; 2024 Jovenes a Programar</small>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
+            <div class="d-flex mt-2">
+              <i class="bi bi-brightness-high-fill  me-2"></i> 
+              <div class="form-check form-switch d-flex">
+                <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+              </div>
+              <i class="bi bi-moon-fill"></i>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="my-profile-container">
+      <div class="my-profile-form">
+        <form action="" method="get" class="needs-validation" novalidate>
+          <div class="container">
+            <div class="d-flex align-items-center profile-header">
+                <div class="profile-picture-container">
+                    <img src="img/img_perfil.png" alt="Profile Picture" class="bd-placeholder-img" id="profilePicture" style="width: 100px; height: 100px;">
+                    <div class="hover-text">Haz click para cambiar tu foto.</div>
+                    <input type="file" accept="image/*" id="uploadImage">
+                </div>
+                <p id="nickname" class="ms-3 mb-0"></p>
+            </div>
+        </div>
+          <div class="form-grid">
+            <div class="form-item">
+              <label>Nombre*</label>
+              <input type="text" for="name" id="name" placeholder="Ingrese su nombre" required>
+              <div class="invalid-feedback">
+                Debe ingresar un nombre.
+              </div>
+            </div>
+    
+            <div class="form-item">
+              <label>Segundo nombre</label>
+              <input type="text" for="second-name" id="second-name" placeholder="Ingrese su segundo nombre">
+            </div>
+    
+            <div class="form-item">
+              <label>Apellido*</label>
+              <input for="lastname" type="text" id="lastname" placeholder="Ingrese su apellido" required>
+              <div class="invalid-feedback">
+                Debe ingresar un apellido.
+              </div>
+            </div>
+    
+            <div class="form-item">
+              <label>Segundo apellido</label>
+              <input for="second-lastname" id="second-lastname" type="text" placeholder="Ingrese su segundo apellido">
+            </div>
+    
+            <div class="form-item">
+              <label for="email">E-mail*</label>
+              <input type="text" id="E-mail" disabled>
+            </div>
+    
+            <div class="form-item">
+              <label>Teléfono de contacto</label>
+              <input for="tel" id="tel" type="text" placeholder="Ingrese su teléfono">
+              <div class="invalid-feedback">
+                Solo se permiten números
+              </div>
+            </div>
+          </div>
+  
+          <button class="btn btn-primary" type="submit" id="register">Guardar cambios</button>
+        </form>
       </div>
+      
     </div>
   </main>
   <footer class="text-muted">
@@ -65,7 +153,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>

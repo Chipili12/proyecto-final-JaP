@@ -188,115 +188,50 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+/*---------------------------------- *Navbar* ---------------------------------- */
+
+.offcanvas-body {
+  padding: 20px;
+}
+
+#cartBadge{
+  left: -76px;
+  padding: 3px;
+  top: -9px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
 
 /*---------------------------------- *Login* ---------------------------------- */
-#contenidoLogin {
-  background-color: #e6e3e3;
-  width: 400px; /* Ancho del contenedor */
-  text-align: center; /*Centramos el texto dentro del contenedor*/
-  padding: 50px; /*Espacio entre el borde y el contenido*/
-  margin: 0 auto; /* Centro el contenedor */
-  border-radius: 15px; /*Redondeamos los bordes*/
-  font-weight: bold; /*Estilo de la letra*/
-}
 
-#login {
-  margin: 0;
-  display: flex;
-  flex-direction: column; /*Organiza los elementos en columnas*/
-  align-items: center; /*Centra los elementos horizontales*/
-}
-
-#contraseña,
-#email,
-.boton-Login {
-  width: 100%; /*Ancho completo de los contenedores*/
-  padding: 10px; /*Espacio entre el borde y el contenido*/
-  margin-bottom: 30px; /*Espacio debajo de los contenedores/botones*/
-  border-radius: 5px;
-}
-
-.boton-Login {
-  background-color: #a798cf;
-  color: white;
-  border: none;
-  font-weight: bold;
-}
-
-.boton-Login:hover {
-  /*Al pasar el mouse o pulsar cambia los colores*/
-  background-color: white;
-  color: #a798cf;
-}
-
-h1 {
-  margin-bottom: 40px; /* Ubica el titulo para separarlo del resto*/
-  font-size: 34px;
-  font-weight: bold;
-}
-
-@media (max-width: 350px) {
-  #contenidoLogin {
-    width: 230px;
-    font-size: 50%;
-    align-items: center;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 768px) {
-  #contenidoLogin {
-    margin-top: 60px;
-  }
+#loginContainer{
+  position:absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  
 }
 
 /*---------------------------------- *Products* ---------------------------------- */
 
-@media (max-width: 768px) {
-  .mt-4 {
-    text-align: left;
-  }
-}
-
-@media (max-width: 500px) {
-  .row {
-    flex-direction: column;
-  }
-
-  .col-3 {
-    width: 100%;
-  }
-
-  .mb-0 {
-    text-align: left;
-  }
-
-  .text-muted {
-    text-align: right;
-  }
-}
 
 
 .img2 {
   z-index: 5;
   opacity: 0.8;
 }
-.img2:hover{
-  opacity:1;
+.img2:hover {
+  opacity: 1;
   transform: rotate(-5deg);
   transition: transform 0.3s ease;
-  
 }
 
 /* Smaller images for medium screens and below (md and smaller) */
 @media (max-width: 991.98px) {
   .img2 {
-      width: 80px;  /* Adjust the size as needed */
-      height: auto;
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
   }
 }
 .btn-comprar {
@@ -304,7 +239,6 @@ h1 {
   color: white;
   border: none;
 }
-
 
 /*Productos relacionados*/
 .ContenedorProductosR {
@@ -316,7 +250,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
 }
 
 .productoRItem {
@@ -334,7 +267,7 @@ h1 {
 
 .productoRItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: inherit;
 }
@@ -353,22 +286,21 @@ h1 {
 
 @media (max-width: 768px) {
   .produtcosRImagen {
-      width: 200px;
+    width: 200px;
   }
   .productosRNombre {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
-
-/*Estilos reviews*/
+/*---------------------------------- *Reviews* ---------------------------------- */
 
 .review {
   transition: all 0.3s ease;
 }
 .review:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .star-rating {
@@ -395,5 +327,66 @@ h1 {
 }
 
 .star-rating i {
-  font-size: 1.2rem; /* Or whatever size you need */
+  font-size: 1.2rem; 
+}
+
+
+/*---------------------------------- Darkmode ---------------------------------- */
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .card,
+.dark-mode .list-group-item,
+.dark-mode .form-control,
+.dark-mode .img-thumbnail,
+.dark-mode #file-upload,
+.dark-mode .list-group-item.active,
+.dark-mode .form-select,
+.dark-mode .btn-primary,
+.dark-mode .btn-light,
+.dark-mode .bg-light,
+.dark-mode #contenidoLogin{
+  background-color: #444!important;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="password"],
+.dark-mode textarea {
+  background-color: #ddd8;
+  color: #fff;
+  border-color: #888;
+}
+
+.dark-mode .jumbotron{
+  height: 50vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background-color: #53c0fb;
+  background: url("../img/dark_cover_back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+}
+.dark-mode .btn-link {
+  color: #ddd;
+}
+.dark-mode .text-muted{
+  color: #aaa !important;
+}
+
+.bi-brightness-high-fill,
+.bi-moon-fill{
+  color:#fff
+}
+
+.dark-mode a {
+  color: #9cf;
 }

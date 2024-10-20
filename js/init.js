@@ -7,38 +7,83 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
-let showSpinner = function(){
+document.addEventListener("DOMContentLoaded", function (e) {
+
+  if (sessionStorage.getItem("isAuthenticated") == "true") {
+    var menuOffcanvas = document.getElementById("loginInicio");
+    menuOffcanvas.setAttribute("data-bs-toggle", "offcanvas");
+    menuOffcanvas.setAttribute("data-bs-target", "#offcanvasRight");
+    menuOffcanvas.setAttribute("aria-controls", "offcanvasRight");
+
+    menuOffcanvas.innerHTML = sessionStorage.getItem("email");
+
+    document.getElementById("logoutButton").addEventListener("click", function () {
+      sessionStorage.clear();
+      localStorage.clear();
+      window.location.href = "login.html";
+    })
+  }
+
+  const darkModeSwitch = document.getElementById('darkModeSwitch');
+  const body = document.body;
+  const isDarkMode = localStorage.getItem('darkMode')
+
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches && !isDarkMode) {
+    localStorage.setItem('darkMode', 'true')
+    body.classList.add('dark-mode');
+    darkModeSwitch.checked = true;
+  } else if (!isDarkMode) {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'false')
+    darkModeSwitch.checked = false;
+  }
+
+  if (isDarkMode == 'true') {
+    body.classList.add('dark-mode');
+    darkModeSwitch.checked = true;
+  }
+
+  darkModeSwitch.addEventListener('change', () => {
+    if (darkModeSwitch.checked) {
+      body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'false');
+    }
+  });
+})
+
+
+let showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-let hideSpinner = function(){
+let hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-let getJSONData = function(url){
-    let result = {};
-    showSpinner();
-    return fetch(url)
+let getJSONData = function (url) {
+  let result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
-}
-if (sessionStorage.getItem("isAuthenticated") == "true") {
-  document.getElementById("loginInicio").innerHTML = sessionStorage.getItem("email");
 }
