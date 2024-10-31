@@ -37,7 +37,7 @@ fetchItem().then((data) => {
 
 // Declaro la función showItem que muestra los datos del producto en la página, utilizando el JSON obtenido de la API
 const showItem = (item) => {
-    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existingItemIndex = cart.findIndex(cartItem => cartItem.item.id === item.id);
 
     let htmlContentToAppend = "";
@@ -127,9 +127,7 @@ const showItem = (item) => {
         alert(`Se encuentran ${quantityToAdd} ${item.name} agregados al carrito`);
 
         // Convierte el array en un string JSON y lo almacena en el sessionStorage.
-        sessionStorage.setItem('cart', JSON.stringify(cart));
-
-        console.log(sessionStorage.getItem('cart'));
+        localStorage.setItem('cart', JSON.stringify(cart));
     });
 
 };

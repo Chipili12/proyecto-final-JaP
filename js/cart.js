@@ -1,4 +1,4 @@
-let cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 console.log(cartItems);
 
 function renderCart() {
