@@ -8,7 +8,7 @@ const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
+  sessionStorage.getItem('cart') ? document.getElementById("cartBadge").textContent = JSON.parse(sessionStorage.getItem('cart')).length || 0 : document.getElementById("cartBadge").textContent = 0
   if (sessionStorage.getItem("isAuthenticated") == "true") {
     var menuOffcanvas = document.getElementById("loginInicio");
     menuOffcanvas.setAttribute("data-bs-toggle", "offcanvas");
