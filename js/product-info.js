@@ -69,7 +69,7 @@ const showItem = (item) => {
                         <span class="input-group-text">Cantidad</span>
                         <input type="number" class="form-control rounded-pill-md quantity-input" value="${cart[existingItemIndex]?.quantity || 1}" min="1" id="cantidad">
                     </div>
-                    <button class="btn btn-comprar" id="comprar">Comprar</button>
+                    <a href="cart.html"><button class="btn btn-comprar" id="comprar">Comprar</button></a>
                 </div>
                 
             </div>

@@ -398,12 +398,6 @@ body.dark-mode {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.product-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-}
 .dark-mode #item-cart{
   background-color: #2f2f2f!important;
   border-radius: 10px;
@@ -430,12 +424,11 @@ body.dark-mode {
 }
 .subtotal {
   font-weight: bold;
-  color: #28a745;
 }
 
 
 .total-section {
-  background-color: #e9ecef;
+  background-color: #f8f8f8;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
@@ -475,4 +468,8 @@ body.dark-mode {
 .dark-mode .btn-primary:hover {
   background-color: #003d80;
   border-color: #002752;
+}
+
+.dark-mode .bi-star-fill{
+  color: #ffcc00;
 }
