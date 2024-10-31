@@ -6,7 +6,7 @@ function renderCart() {
     cartContainer.innerHTML = '';
 
     cartItems.forEach(cartItem => {
-        const item = cartItem.item; // Access the item object
+        const item = cartItem.item; // Accede al item del carrito
 
         const itemElement = document.createElement('div');
         itemElement.className = 'card mb-4';
