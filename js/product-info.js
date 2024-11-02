@@ -69,7 +69,7 @@ const showItem = (item) => {
                         <span class="input-group-text">Cantidad</span>
                         <input type="number" class="form-control rounded-pill-md quantity-input" value="${cart[existingItemIndex]?.quantity || 1}" min="1" id="cantidad">
                     </div>
-                    <a href="cart.html"><button class="btn btn-comprar" id="comprar">Comprar</button></a>
+                    <button class="btn btn-comprar" id="comprar">Comprar</button>
                 </div>
                 
             </div>
@@ -125,7 +125,7 @@ const showItem = (item) => {
             document.getElementById("cartBadge").textContent = parseInt(document.getElementById("cartBadge").textContent) + 1;
         }
         alert(`Se encuentran ${quantityToAdd} ${item.name} agregados al carrito`);
-
+        window.location.href = 'cart.html';
         // Convierte el array en un string JSON y lo almacena en el sessionStorage.
         localStorage.setItem('cart', JSON.stringify(cart));
     });
