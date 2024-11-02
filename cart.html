@@ -44,14 +44,16 @@
                   <a class="btn w-100 text-start mb-2 menu-item " href="my-profile.html">
                     <i class="bi bi-person me-2"></i> Mi perfil
                   </a>
-                  <hr>
-                  <button class="btn w-100 text-start mb-2 menu-item" id="cartButton">
+                  <hr class="m-0 mb-1">
+                  <a class="btn w-100 text-start mb-2 menu-item" href="cart.html">
                     <i class="bi bi-cart me-2"></i>Carrito <span class="badge bg-primary rounded-pill"
                       id="cartBadge">0</span>
-                  </button>
+                  </a>
+                  <hr class="m-0 mb-1">
                   <button class="btn w-100 text-start mb-2 menu-item" id="logoutButton">
                     <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
                   </button>
+                  <hr class="m-0 mb-1">
                 </div>
                 <div class="mt-auto text-center text-muted">
                   <small>&copy; 2024 Jovenes a Programar</small>
@@ -61,7 +63,7 @@
           </li>
           <li class="nav-item">
             <div class="d-flex mt-2">
-              <i class="bi bi-brightness-high-fill  me-2"></i> 
+              <i class="bi bi-brightness-high-fill  me-2"></i>
               <div class="form-check form-switch d-flex">
                 <input class="form-check-input" type="checkbox" id="darkModeSwitch">
               </div>
@@ -72,29 +74,20 @@
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+  <div class="container mt-5">
+    <div class="cart-container p-4 p-md-5">
+      <h1 class="mb-4">Carrito de compras</h1>
+      <p class="text-muted mb-4">Revisa y modifica tus artículos</p>
+      <div id="cart-items">
+
+      </div>
+      <div class="total-section mt-4 p-3">
+        <h4 class="mb-0">Total: <span id="cart-total" class="text-success">$0.00</span></h4>
       </div>
     </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>

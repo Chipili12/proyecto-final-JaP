@@ -387,6 +387,89 @@ body.dark-mode {
   color:#fff
 }
 
-.dark-mode a {
-  color: #9cf;
+
+
+
+/* CART */
+
+.cart-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-mode #item-cart{
+  background-color: #2f2f2f!important;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+#item-cart {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  border-color: #e1e1e1;
+  box-shadow:wheat;
+  border-style: solid;
+}
+
+.card {
+  border: none;
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.quantity-input {
+  max-width: 80px;
+}
+.subtotal {
+  font-weight: bold;
+}
+
+
+.total-section {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+.dark-mode .cart-container {
+  background-color: #2c2c2c;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .card-title,
+.dark-mode .card-text {
+  color: #ffffff;
+}
+.dark-mode .text-muted {
+  color: #b0b0b0 !important;
+}
+.dark-mode .total-section {
+  background-color: #2c2c2c;
+}
+.dark-mode .subtotal {
+  color: #5cb85c;
+}
+.dark-mode .form-control,
+.dark-mode .input-group-text {
+  background-color: #4a4a4a;
+  border-color: #5a5a5a;
+  color: #ffffff;
+}
+.dark-mode .btn-primary {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+.dark-mode .btn-primary:hover {
+  background-color: #003d80;
+  border-color: #002752;
+}
+
+.dark-mode .bi-star-fill{
+  color: #ffcc00;
 }
