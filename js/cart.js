@@ -85,6 +85,9 @@ function deleteItem(itemId) {
     document.getElementById(`item-cart`).remove();
     renderCart();
     document.getElementById("cartBadge").textContent = JSON.parse(localStorage.getItem('cart')).length || 0
+    if (cart.length == 0) {
+        document.getElementById("btnCompra").setAttribute("disabled", '');
+    }
     
 }
 
