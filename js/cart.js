@@ -94,7 +94,6 @@ function deleteItem(itemId) {
     if (cart.length == 0) {
         document.getElementById("btnCompra").setAttribute("disabled", '');
     }
-
 }
 
 function actualizarCostos() {
@@ -104,7 +103,8 @@ function actualizarCostos() {
 
     if (document.getElementById("cart-total").innerText == '0.00') {
         document.getElementById("btnCompra").setAttribute("disabled", '');
-    }else{
+    }
+    else{
         document.getElementById("btnCompra").removeAttribute("disabled");
     }
     if (shippingMethod.value == '') {
