@@ -82,11 +82,140 @@
       <div id="cart-items">
 
       </div>
-      <div class="total-section mt-4 p-3">
-        <h4 class="mb-0">Total: <span id="cart-total" class="text-success">$0.00</span></h4>
+      <div class="total-section mt-4 p-3 d-flex justify-content-between">
+        <h4 class="mb-0">Total: <span class="text-success">USD <span id="cart-total"></span></span></h4>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carritoModal"
+          id="btnCompra">
+          Continuar la compra
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- Modal formulario -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body m-2 mb-0">
+          <form id="carritoForm" novalidate>
+            <div class="mb-3">
+              <h6>Tipo de envío</h6>
+              <select class="form-select" id="shippingMethod" required>
+                <option value="">Seleccione tipo de envío</option>
+                <option value="0.15">Premium 2 a 5 días (15%)</option>
+                <option value="0.07">Express 5 a 8 días (7%)</option>
+                <option value="0.05">Standard 12 a 15 días (5%)</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <h6>Dirección de envío</h6>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <select class="form-select" id="departamento" required>
+                    <option value="">Departamento</option>
+                    <option value="artigas">Artigas</option>
+                    <option value="canelones">Canelones</option>
+                    <option value="cerro%20largo">Cerro Largo</option>
+                    <option value="colonia">Colonia</option>
+                    <option value="durazno">Durazno</option>
+                    <option value="flores">Flores</option>
+                    <option value="florida">Florida</option>
+                    <option value="lavalleja">Lavalleja</option>
+                    <option value="maldonado">Maldonado</option>
+                    <option value="montevideo">Montevideo</option>
+                    <option value="paysandu">Paysandú</option>
+                    <option value="rio%20negro">Río Negro</option>
+                    <option value="rivera">Rivera</option>
+                    <option value="rocha">Rocha</option>
+                    <option value="salto">Salto</option>
+                    <option value="san%20jose">San José</option>
+                    <option value="soriano">Soriano</option>
+                    <option value="tacuarembo">Tacuarembó</option>
+                    <option value="treinta%20y%20tres">Treinta y Tres</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor ingrese el departamento.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <select class="form-select" id="city" placeholder="localidad" required>
+                    <option value="">Ciudad</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor ingrese la localidad.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" id="calle" placeholder="Calle" oninput="formatStreet(this)"
+                    required>
+                  <div class="invalid-feedback">
+                    Por favor ingrese la calle.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" id="numero" placeholder="Número" oninput="formatNumber(this)"
+                    required>
+                  <div class="invalid-feedback">
+                    Por favor ingrese el número.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" id="esquina" placeholder="Esquina"
+                    oninput="formatCorner(this)" required>
+                  <div class="invalid-feedback">
+                    Por favor ingrese la esquina.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <h6>Forma de pago</h6>
+              <select class="form-select" id="formaPago" required>
+                <option value="">Seleccione forma de pago</option>
+                <option value="tarjeta">Tarjeta de crédito</option>
+                <option value="transferencia">Transferencia bancaria</option>
+              </select>
+            </div>
+            <div id="metodoDePago">
+
+            </div>
+            <div class="mb-3">
+              <h6>Costos</h6>
+              <p>Subtotal: $<span id="subtotal"></span></p>
+              <p>Costo de envío: $<span id="costoEnvio"></span></p>
+              <p><strong>Total: $<span id="total"></span></strong></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Finalizar compra</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Exito -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script><lottie-player
+        src="https://lottie.host/d804293e-e3c8-4ab4-bf75-a4bdac0c7f18/KLgwGBCOSZ.json" background="##ffffff" speed="0.3"
+        style="width: 300px; height: 300px; margin-inline: auto;" direction="0" mode="normal"
+        id="checkmark"></lottie-player>
+        <h5 class="modal-title text-center" id="successModalLabel">¡Compra realizada con exito!</h5>
+        <div class="modal-footer border-0 mb-2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="prueba">Boton prueba</button>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
