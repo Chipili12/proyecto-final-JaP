@@ -3,11 +3,11 @@ const profilePicture = document.getElementById("profilePicture"); // elemento do
 const savedProfilePicture = localStorage.getItem("profilePicture"); // obtener la imagen guardada en el localStorage
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (sessionStorage.getItem("isAuthenticated") !== "true") {
+    if (localStorage.getItem("isAuthenticated") !== "true") {
         window.location.href = "login.html"; // Redirigir al login si no está autenticado
         return;
       }
-    const storeEmail = sessionStorage.getItem("email");
+    const storeEmail = localStorage.getItem("email");
     if (storeEmail) {
         document.getElementById("E-mail").value = storeEmail;
         document.getElementById("nickname").textContent = "@" + storeEmail.split('@')[0];
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     // Datos cargados anteriormente
-    const storedData = JSON.parse(sessionStorage.getItem('profileData'));
+    const storedData = JSON.parse(localStorage.getItem('profileData'));
     if (storedData){
         document.getElementById('name').value = storedData.name || "";
         document.getElementById('second-name').value = storedData.secondName || '';
@@ -105,7 +105,7 @@ input.addEventListener("change", () => {
             //     email.setCustomValidity('');
             // }
 
-            // si el formulario es valido, guardar en sessionStorage
+            // si el formulario es valido, guardar en localStorage
             if (valid) {
                 const profileData = {
                     name: name.value.trim(),
@@ -116,7 +116,7 @@ input.addEventListener("change", () => {
                     tel: tel.value.trim()
                 };
 
-                sessionStorage.setItem('profileData', JSON.stringify(profileData));
+                localStorage.setItem('profileData', JSON.stringify(profileData));
                 alert('Datos guardados con exito');
             } 
 

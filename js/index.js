@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   // Verifica si el usuario está logeado
-  if (sessionStorage.getItem("isAuthenticated") !== "true") {
+  if (localStorage.getItem("isAuthenticated") !== "true") {
     window.location.href = "login.html"; // Redirigir al login si no está autenticado
     return;
   }
