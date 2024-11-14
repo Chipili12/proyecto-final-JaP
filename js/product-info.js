@@ -108,7 +108,7 @@ const showItem = (item) => {
     const comprarButton = document.getElementById('comprar');
 
     comprarButton.addEventListener('click', () => {
-        if (!sessionStorage.getItem('email')) {
+        if (!sessionStorage.getItem('isAuthenticated')) {
             alert('Debe iniciar sesión para comprar');
             window.location.href = 'login.html';
             return;

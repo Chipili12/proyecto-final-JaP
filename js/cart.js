@@ -184,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function () {
             event.stopPropagation();
         } else {
             event.preventDefault();
-            console.log("PIJA");
     
             const formModalElement = document.getElementById('carritoModal');
             const formModal = bootstrap.Modal.getInstance(formModalElement)
