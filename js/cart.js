@@ -1,5 +1,12 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || []; //Obtengo el carrito del localStorage
 
+document.addEventListener('DOMContentLoaded', () => {
+    if(!localStorage.getItem('isAuthenticated')){
+        alert("Debes iniciar sesión para acceder al carrito.")
+        window.location.href = "login.html";
+    }
+})
+
 function renderCart() { //Muestro los productos del localStorage en el carrito
     const cartContainer = document.getElementById('cart-items');
     cartContainer.innerHTML = '';
@@ -127,8 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('metodoDePago').innerHTML = `
             <div id="camposTarjeta">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="numeroTarjeta" placeholder="Número de tarjeta" maxlength="19" oninput="formatCreditCard(this)"
- required>
+                            <input type="text" class="form-control" id="numeroTarjeta" placeholder="Número de tarjeta" maxlength="19" oninput="formatCreditCard(this)" required>
                             <div class="invalid-feedback">
                                 Por favor ingrese el número de tarjeta.
                             </div>

@@ -32,8 +32,8 @@
         event.stopPropagation()
       } else {
         event.preventDefault()
-        sessionStorage.setItem("isAuthenticated", "true"); // cuando el usuario envia el formulario, lo marca como autenticado
-        sessionStorage.setItem("email", document.getElementById("email").value);
+        localStorage.setItem("isAuthenticated", "true"); // cuando el usuario envia el formulario, lo marca como autenticado
+        localStorage.setItem("email", document.getElementById("email").value);
         window.location.href = "index.html"; // Redirigir al index si se autentica
        }
       form.classList.add('was-validated'); 

@@ -108,7 +108,7 @@ const showItem = (item) => {
     const comprarButton = document.getElementById('comprar');
 
     comprarButton.addEventListener('click', () => {
-        if (!sessionStorage.getItem('isAuthenticated')) {
+        if (!localStorage.getItem('isAuthenticated')) {
             alert('Debe iniciar sesión para comprar');
             window.location.href = 'login.html';
             return;
@@ -169,12 +169,12 @@ reviewForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const score = document.querySelector('input[name="rating"]:checked').value;
     const description = document.getElementById('comment').value;
-    if (!sessionStorage.getItem('email')) {
+    if (!localStorage.getItem('email')) {
         alert('Debe iniciar sesión para dejar un review');
         reviewForm.reset();
         return;
     }
-    const user = sessionStorage.getItem('email').split('@')[0];
+    const user = localStorage.getItem('email').split('@')[0];
     const date = new Date().toISOString().split('T')[0];
 
     const reviewElement = document.createElement('div');

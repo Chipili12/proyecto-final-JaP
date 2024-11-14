@@ -9,16 +9,16 @@ const EXT_TYPE = ".json";
 
 document.addEventListener("DOMContentLoaded", function (e) {
   localStorage.getItem('cart') ? document.getElementById("cartBadge").textContent = JSON.parse(localStorage.getItem('cart')).length || 0 : document.getElementById("cartBadge").textContent = 0
-  if (sessionStorage.getItem("isAuthenticated") == "true") {
+  if (localStorage.getItem("isAuthenticated") == "true") {
     var menuOffcanvas = document.getElementById("loginInicio");
     menuOffcanvas.setAttribute("data-bs-toggle", "offcanvas");
     menuOffcanvas.setAttribute("data-bs-target", "#offcanvasRight");
     menuOffcanvas.setAttribute("aria-controls", "offcanvasRight");
 
-    menuOffcanvas.innerHTML = sessionStorage.getItem("email");
+    menuOffcanvas.innerHTML = localStorage.getItem("email");
 
     document.getElementById("logoutButton").addEventListener("click", function () {
-      sessionStorage.clear();
+      localStorage.clear();
       localStorage.clear();
       window.location.href = "login.html";
     })
