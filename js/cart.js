@@ -71,7 +71,7 @@ function updateTotal() {
         total += subtotal;
         const subtotalElement = input.closest('.card-body').querySelector('.subtotal');
         subtotalElement.textContent = `${cartItem.item.currency} ${cartItem.item.cost * quantity.toFixed(2)}`; // actualiza el subtotal individual
-        
+
     });
     document.getElementById('subtotal').textContent = `${total.toFixed(2)}`;
     document.getElementById('cart-total').textContent = `${total.toFixed(2)}`;
@@ -88,7 +88,7 @@ function deleteItem(itemId) {
     if (cart.length == 0) {
         document.getElementById("btnCompra").setAttribute("disabled", '');
     }
-    
+
 }
 
 function actualizarCostos() {
@@ -103,7 +103,7 @@ function actualizarCostos() {
     subtotal.innerText = subtotalCart.innerText;
     costoEnvio.innerText = (parseFloat(shippingMethod.value) * parseFloat(subtotal.innerText)).toFixed(2);
     total.innerText = (parseFloat(costoEnvio.innerText) + parseFloat(subtotal.innerText)).toFixed(2);
-    
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -118,12 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('carritoForm');
     const shippingMethod = document.getElementById('shippingMethod');
     const formaPago = document.getElementById('formaPago');
-    const camposTarjeta = document.getElementById('camposTarjeta');
-    const camposTransferencia = document.getElementById('camposTransferencia');
-    
-    const costoEnvio = document.getElementById('costoEnvio');
-    const total = document.getElementById('total');
-
     // Actualizar costos cuando cambia el tipo de envío
     shippingMethod.addEventListener('change', actualizarCostos);
 
@@ -182,22 +176,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Validación del formulario en submit.
     form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
-            
+
             event.preventDefault();
             event.stopPropagation();
         } else {
             event.preventDefault();
-    
+
             const formModalElement = document.getElementById('carritoModal');
             const formModal = bootstrap.Modal.getInstance(formModalElement)
-    
+
             formModal.hide();
-    
+
             // Muestra el modal de exito
 
             const successModalElement = document.getElementById('successModal');
             const successModal = bootstrap.Modal.getInstance(successModalElement) || new bootstrap.Modal(successModalElement);
-    
+
             successModal.show();
             document.getElementById('checkmark').play();
             // Tras 2 segundos, cierra el modal de exito
@@ -205,12 +199,12 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 successModal.hide();
             }, 5000);
-            
+
         }
-    
+
         form.classList.add('was-validated');
     });
-    
+
 
 
 });
@@ -229,7 +223,7 @@ document.getElementById('departamento').addEventListener('change', function () {
             option.textContent = option.textContent.charAt(0).toUpperCase() + option.textContent.slice(1);
             citySelect.appendChild(option);
         });
-        
+
     })
     if (citySelect.options.length === 0) {
         citySelect.disabled = true;
@@ -249,7 +243,7 @@ function showValidation(input, isValid, message) {
         input.classList.remove('is-valid');
         input.classList.add('is-invalid');
         input.setCustomValidity(message);
-        input.reportValidity(); 
+        input.reportValidity();
     }
 
 }
@@ -296,7 +290,7 @@ function formatCVV(input) {
 
 // Formato de otros inputs, sin validación.
 function formatNumber(input) {
-    input.value = input.value.replace(/\D/g, ''); 
+    input.value = input.value.replace(/\D/g, '');
     input.value = input.value.slice(0, 5);
 }
 
