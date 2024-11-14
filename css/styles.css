@@ -348,7 +348,8 @@ body.dark-mode {
 .dark-mode .btn-primary,
 .dark-mode .btn-light,
 .dark-mode .bg-light,
-.dark-mode #contenidoLogin{
+.dark-mode #contenidoLogin,
+.dark-mode .modal-content{
   background-color: #444!important;
   color: #fff;
   border-color: #555;
@@ -473,3 +474,4 @@ body.dark-mode {
 .dark-mode .bi-star-fill{
   color: #ffcc00;
 }
+
