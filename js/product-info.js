@@ -126,7 +126,7 @@ const showItem = (item) => {
         }
         alert(`Se encuentran ${quantityToAdd} ${item.name} agregados al carrito`);
         window.location.href = 'cart.html';
-        // Convierte el array en un string JSON y lo almacena en el sessionStorage.
+        // Convierte el array en un string JSON y lo almacena en el localStorage.
         localStorage.setItem('cart', JSON.stringify(cart));
     });
 

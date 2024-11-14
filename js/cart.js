@@ -78,7 +78,6 @@ function updateTotal() {
         total += subtotal;
         const subtotalElement = input.closest('.card-body').querySelector('.subtotal');
         subtotalElement.textContent = `${cartItem.item.currency} ${cartItem.item.cost * quantity.toFixed(2)}`; // actualiza el subtotal individual
-
     });
     document.getElementById('subtotal').textContent = `${total.toFixed(2)}`;
     document.getElementById('cart-total').textContent = `${total.toFixed(2)}`;
@@ -103,6 +102,11 @@ function actualizarCostos() {
     const shippingMethod = document.getElementById('shippingMethod');
     const subtotalCart = document.getElementById('cart-total')
 
+    if (document.getElementById("cart-total").innerText == '0.00') {
+        document.getElementById("btnCompra").setAttribute("disabled", '');
+    }else{
+        document.getElementById("btnCompra").removeAttribute("disabled");
+    }
     if (shippingMethod.value == '') {
         return
     }
@@ -125,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('carritoForm');
     const shippingMethod = document.getElementById('shippingMethod');
     const formaPago = document.getElementById('formaPago');
+    
     // Actualizar costos cuando cambia el tipo de envío
     shippingMethod.addEventListener('change', actualizarCostos);
 
