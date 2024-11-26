@@ -9,7 +9,10 @@ CREATE TABLE Users (
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(255),
-    last_name VARCHAR(255)
+    second_name VARCHAR(255),
+    lastname VARCHAR(255),
+    second_lastname VARCHAR(255),
+    phone VARCHAR(255)
 );
 
 -- Crear tabla para los artículos

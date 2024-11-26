@@ -1,2 +1,3 @@
-emercado-api
-JSONs container para simular una Api REST para el ecommerce e-Mercado.
+
+
+CREAR UN ARCHIVO .env, CON LA VARIABLE JWT_SECRET=<Tu_Clave>

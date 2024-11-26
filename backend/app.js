@@ -21,9 +21,6 @@ const pool = new Pool({
     port: '5432'
 })
 
-// inicia el servidor y muestra el puerto.
-
-
 //Trae el listado de categorías.
 app.get("/cats/cat.json", (req, res) => {
     const filePath = path.join(__dirname, 'cats', 'cat.json'); //directorio del Json
@@ -159,7 +156,7 @@ app.post('/cart', async (req, res) => {
 
 
 // Datos del carrito
-const email="pijarica@pijarica.com";
+const email="emailprueba@emailprueba.com";
 const cartItems = [
     {
         product_id: 50922,
@@ -204,8 +201,7 @@ addItemsToCart(email,cartItems)
     .then(() => console.log('Finalizado'))
     .catch((err) => console.error('Error general:', err));
 
-
-
+// inicia el servidor y muestra el puerto.
 app.listen(3000, () => {
     console.log(`Servidor corriendo en http://localhost:3000`);
 });
