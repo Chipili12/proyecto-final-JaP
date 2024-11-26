@@ -50,3 +50,12 @@ CREATE TABLE Cart_items (
     CONSTRAINT "PK_Cart_Item" PRIMARY KEY  (email, product_id),
     count INT NOT NULL
 );
+
+CREATE TABLE Products_comments (
+    id SERIAL PRIMARY KEY,
+    product INT NOT NULL REFERENCES Products(id),
+    score INT NOT NULL CHECK (score BETWEEN 1 AND 5),
+    description TEXT,
+    user VARCHAR(255) NOT NULL REFERENCES Users(email),
+    dateTime TIMESTAMP NOT NULL
+);
