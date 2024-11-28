@@ -29,11 +29,11 @@ async function populateCategories() {
         async (json) => {
             for (const category of json) {
                 const query = `
-                    INSERT INTO Category (catID, catName)
-                    VALUES ($1, $2)
+                    INSERT INTO Category (catID, catName, description, imgSrc)
+                    VALUES ($1, $2, $3, $4)
                     ON CONFLICT DO NOTHING
                 `;
-                await pool.query(query, [category.id, category.name]);
+                await pool.query(query, [category.id, category.name, category.description, category.imgSrc]);
             }
         }
     );
@@ -84,55 +84,11 @@ async function populateRelatedProducts() {
     );
 }
 
-async function populateCartItems() {
-    console.log('Poblando tabla Cart_items...');
-    await populateTableFromJSON(
-        path.join(__dirname, 'user_cart'),
-        async (json) => {
-            const { user, articles } = json;
-            for (const article of articles) {
-                const query = `
-                    INSERT INTO Cart_items (email, product_id, count)
-                    VALUES ($1, $2, $3)
-                    ON CONFLICT DO NOTHING
-                `;
-                // Supongo que user es email en la tabla
-                await pool.query(query, [user, article.id, article.count]);
-            }
-        }
-    );
-}
-
-async function populateProductComments() {
-    console.log('Poblando tabla Products_comments...');
-    await populateTableFromJSON(
-        path.join(__dirname, 'products_comments'),
-        async (json) => {
-            for (const comment of json) {
-                const query = `
-                    INSERT INTO Products_comments (product, score, description, user, dateTime)
-                    VALUES ($1, $2, $3, $4, $5)
-                    ON CONFLICT DO NOTHING
-                `;
-                await pool.query(query, [
-                    comment.product,
-                    comment.score,
-                    comment.description,
-                    comment.user,
-                    comment.dateTime,
-                ]);
-            }
-        }
-    );
-}
-
 (async () => {
     try {
         await populateCategories();
         await populateProducts();
         await populateRelatedProducts();
-        await populateCartItems();
-        await populateProductComments();
         console.log('Población completada exitosamente.');
     } catch (err) {
         console.error('Error durante la población:', err);
