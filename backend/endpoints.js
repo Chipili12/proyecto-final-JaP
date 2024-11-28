@@ -42,15 +42,14 @@ const authMiddleware = (req, res, next) => {
                 return res.status(403).json({ error: 'Invalid token' });
             }
 
-            // Attach the user object to the request
+            // Adjunta el usuario a la solicitud
             req.user = user;
-            console.log('User authenticated:', user);
 
-            // Proceed to the next middleware or route handler
+            // PDeja que la solicitud continúe
             next();
         });
     } catch (error) {
-        // Catch any unexpected errors
+
         console.error('Error in authMiddleware:', error.message);
         res.status(500).json({ error: 'Internal server error' });
     }
@@ -178,7 +177,7 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Credenciales incorrectas' });
         }
 
-        // Crea el token JWT
+        // Crea el token JWT con duración 12 horas
         const token = jwt.sign(
             { id: user.id, email: user.email },
             SECRET_KEY,
@@ -282,7 +281,6 @@ app.post('/get_cart', authMiddleware, async (req, res) => {
             finalCartItems.push({ item: item, quantity: count });
         }
     }
-    console.log(finalCartItems);
     return res.status(200).json((finalCartItems));
 });
 
