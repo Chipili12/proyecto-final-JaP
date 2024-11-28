@@ -214,7 +214,7 @@ app.post('/cart', authMiddleware, async (req, res) => {
 });
 
 
-app.post('/delete_cart', authMiddleware, async (req, res) => {
+app.delete('/cart', authMiddleware, async (req, res) => {
     const { email, product_id } = req.body;
 
     const query = `
