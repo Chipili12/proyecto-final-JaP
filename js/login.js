@@ -2,17 +2,7 @@
   'use strict'
 
   //Redirijo a la pantalla de perfil si ya se tiene token
-  fetch('http://localhost:3000/protected', {
-    method: 'GET',
-    headers: {
-      'Authorization': `${localStorage.getItem('token')}`
-    }
-  })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = 'my-profile.html';
-      }
-    })
+
 
   const forms = document.querySelectorAll('.needs-validation');
 
@@ -83,7 +73,7 @@
           alert('Error al obtener el carrito. Por favor, intente más tarde.');
         } else {
           const cartData = await cartResponse.json();
-          // Store cart data in localStorage or handle as needed
+          // Guarda el carrito en el localStorage
           localStorage.setItem('cart', JSON.stringify(cartData));
           window.location.href = 'index.html';
           

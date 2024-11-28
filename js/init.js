@@ -19,6 +19,9 @@ fetch('http://localhost:3000/protected', {
     window.location.href = "login.html";
   }
   else{
+    if(response.ok && window.location.pathname.endsWith('/login.html')){
+      window.location.href = "my-profile.html";
+    }
     var menuOffcanvas = document.getElementById("loginInicio");
     menuOffcanvas.setAttribute("data-bs-toggle", "offcanvas");
     menuOffcanvas.setAttribute("data-bs-target", "#offcanvasRight");
